@@ -10,7 +10,6 @@ const ShoppingCart = (props) => {
 
   return (
     <>
-      <button onClick={() => props.onScreenMode(0)}>View products</button>
       <h1>£{processedCart.cartTotal.toFixed(2)}</h1>
       {processedCart.shoppingCartItems.map((item) => (
         <ShoppingCartItem

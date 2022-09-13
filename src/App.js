@@ -14,33 +14,31 @@ const App = () => {
   };
 
   const onBuyNow = (id) => {
-    const shoppingCartItems = [...shoppingCartItems];
+    const localShoppingCartItems = [...shoppingCartItems];
 
-    const indexOfCartItem = shoppingCartItems.findIndex(
+    const indexOfCartItem = localShoppingCartItems.findIndex(
       (item) => item.id === id
     );
 
     if (indexOfCartItem > -1) {
-      shoppingCartItems[indexOfCartItem].quantity += 1;
+      localShoppingCartItems[indexOfCartItem].quantity += 1;
     } else {
-      shoppingCartItems.push({ quantity: 1, id });
+      localShoppingCartItems.push({ quantity: 1, id });
     }
 
-    setShoppingCartItems({ shoppingCartItems });
+    setShoppingCartItems(localShoppingCartItems);
   };
 
   const onDeleteCartItem = (id) => {
-    const shoppingCartItems = [...shoppingCartItems];
+    const localShoppingCartItems = [...shoppingCartItems];
 
-    const indexOfCartItem = shoppingCartItems.findIndex(
+    const indexOfCartItem = localShoppingCartItems.findIndex(
       (item) => item.id === id
     );
 
-    shoppingCartItems.splice(indexOfCartItem, 1);
+    localShoppingCartItems.splice(indexOfCartItem, 1);
 
-    // console.log("<><><>", shoppingCartItems);
-
-    setShoppingCartItems({ shoppingCartItems });
+    setShoppingCartItems(localShoppingCartItems);
   };
 
   useEffect(() => {
